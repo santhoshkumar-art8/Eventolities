@@ -158,9 +158,7 @@ app.get('/usermove',(req,res)=>{
     
 });
 
-app.get('/usermove/:topic',(req,res)=>{
 
-})
 
 app.get('/event-reg',(req,res)=>{
     res.render('invidual');
