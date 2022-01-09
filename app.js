@@ -112,7 +112,7 @@ let othereventmodel=mongoose.model('otherevent',otherevents);
 
 
 app.get('/',(req,res)=>{
-res.render('registration');
+res.render('Registration');
 });
 
 app.get('/login',(req,res)=>{
