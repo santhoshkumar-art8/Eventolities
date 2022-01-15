@@ -53,11 +53,16 @@ margin-bottom: 5px;
  width: 8vw;
  height: 3vw;
 }
+
+
 @media (min-width:840px){
 input{
   width:28vw;
   height:2.5vw;
  
+}
+.adm1{
+  display: none;
 }
 
 }
@@ -85,9 +90,18 @@ form{
 margin-bottom: 100px;
 }
 
-.adm{
- display: none;
+.adm1{
+
+width: 130px;
+height: 70px;
+margin-left: 40px;
+margin-top: 190px;
+
  
+}
+
+.adm{
+display: none;
 }
 
 }
@@ -141,7 +155,7 @@ margin-bottom: 100px;
    <button type="submit"  class="btn btn-primary "> REGISTER</button>
     
     </form>
-
+    <button type="submit" onclick="window.location.href='/admin'" class=" adm1 btn btn-primary col col-2">LOGIN AS ADMIN</button>
    
       </div>
     
