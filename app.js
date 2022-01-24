@@ -18,8 +18,8 @@ let ename="";
 let des="";
 let date="";
 
-const url="mongodb+srv://santhosh:1234@cluster0.jyuvr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
- mongoose.connect(url||'mongodb://localhost:27017/Ehorizon');
+ const url="mongodb+srv://santhosh:1234@cluster0.yxuqz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+ mongoose.connect(url || 'mongodb://localhost:27017/Eventolities');
 
  mongoose.connection.on('connected',()=>{
      console.log("mongoDb connected");
@@ -111,15 +111,15 @@ let othereventmodel=mongoose.model('otherevent',otherevents);
 
 
 
+// app.get('/',(req,res)=>{
+// res.render('Registration');
+// });
+
+// app.get('/login',(req,res)=>{
+//     res.render('login');
+// })
+
 app.get('/',(req,res)=>{
-res.render('Registration');
-});
-
-app.get('/login',(req,res)=>{
-    res.render('login');
-})
-
-app.get('/event',(req,res)=>{
     addeventmodel.find({},(err,datas)=>{
         if(!err){
             res.render('event',{event:datas});
@@ -260,32 +260,32 @@ app.get('/:topic/data',(req,res)=>{
 })
 
 
-app.post('/',(req,res)=>{
-    name=req.body.name;
-    email=req.body.email;
-    password=req.body.password;
-    password1=req.body.password1;
+// app.post('/',(req,res)=>{
+//     name=req.body.name;
+//     email=req.body.email;
+//     password=req.body.password;
+//     password1=req.body.password1;
 
-    let eventmodel=new model({
-        name:name,
-        email:email,
-        password:password,
-        password1:password1,
-    });
+//     let eventmodel=new model({
+//         name:name,
+//         email:email,
+//         password:password,
+//         password1:password1,
+//     });
 
     
 
-    if(password==password1){
-        eventmodel.save();
-        res.redirect('/login');
-    }else{
+//     if(password==password1){
+//         eventmodel.save();
+//         res.redirect('/login');
+//     }else{
         
-      res.redirect('wrong');
+//       res.redirect('wrong');
 
-    }
+//     }
 
     
-});
+// });
 
 app.post('/addevent',(req,res)=>{
      ename=req.body.name;
@@ -326,27 +326,27 @@ addeventmodel.findByIdAndDelete(dele,(err)=>{
     }
 })
 })
-app.post('/login',(req,res)=>{
-    let name1=req.body.name1;
-    let email1=req.body.email1;
-    let passwords=req.body.passwords;
+// app.post('/login',(req,res)=>{
+//     let name1=req.body.name1;
+//     let email1=req.body.email1;
+//     let passwords=req.body.passwords;
 
-    model.findOne({"name":name1},(err,users)=>{
-        if(!err){
-            if(users){
-                if((users.email==email1)&&(users.password==passwords)){
-                    res.redirect('/event');
-                }else{
-                    res.redirect('/invalid');
-                }
-            }else{
-                res.redirect('/invalid');
-            }
-        }else{
-            console.log(err);
-        }
-    })
-})
+//     model.findOne({"name":name1},(err,users)=>{
+//         if(!err){
+//             if(users){
+//                 if((users.email==email1)&&(users.password==passwords)){
+//                     res.redirect('/event');
+//                 }else{
+//                     res.redirect('/invalid');
+//                 }
+//             }else{
+//                 res.redirect('/invalid');
+//             }
+//         }else{
+//             console.log(err);
+//         }
+//     })
+// })
 
 app.post('/admin',(req,res)=>{
     let aemail=req.body.email;
